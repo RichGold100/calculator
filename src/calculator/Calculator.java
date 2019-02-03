@@ -6,40 +6,44 @@ public class Calculator {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("첫번째 입력값:");
+		System.out.println("1번째 입력값:");
 		int first = scanner.nextInt();
-		System.out.println(first);		
-	
-		System.out.println("연산기호 입력(*/+-):");
-		String symbol = scanner.next();
-		System.out.println(symbol);
+		System.out.println(first);	
+		int result = first;
+		int i = 2;
 		
-		
-		System.out.println("두번째 입력값:");
-		int second = scanner.nextInt();
-		System.out.println(second);
-		
+		while (true) {
+			  System.out.println("연산기호 입력(*/+-):");
+			  String symbol = scanner.next();
+			  System.out.println(symbol);
 
-		
-		if("+".equals(symbol)){
-			System.out.println(first+"+"+second+"="+(first+second));
-		} else if ("-".equals(symbol)){
-			System.out.println(first+"-"+second+"="+(first-second));
-		} else if (symbol.equals("*")){
-			System.out.println(first+"*"+second+"="+(first*second));
-		} else if (symbol.equals("/")) {
-			System.out.println(first+"/"+second+"="+(first/second));
-		} else {
-			System.out.println("사칙연산해당되는 부호를 입력하지 않았습니다.");
-		}
-		
-		
-		
-		
-		
-		
-		
+			  if ("quit".equals(symbol)) {
+			      // TODO 최종 실행 결과 값 출력
+				  System.out.println(result);
+				  
+			      break;
+			  }
 
-	}
+			  // TODO 두 번째 값 입력
+				System.out.println(i+"번째 입력값:");
+				int second = scanner.nextInt();
+				System.out.println(second);	
+				i=i+1;
+
+			  // TODO 사칙연산 실행
+				if("+".equals(symbol)){
+					result = result + second;
+				} else if ("-".equals(symbol)){
+					result = result - second;
+				} else if (symbol.equals("*")){
+					result = result * second;
+				} else if (symbol.equals("/")) {
+					result = result / second;
+				} else {
+					System.out.println("사칙연산해당되는 부호를 입력하지 않았습니다.");
+				}
+			 }
+		
+	   }
 
 }
