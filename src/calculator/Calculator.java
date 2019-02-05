@@ -17,18 +17,18 @@ public class Calculator {
 		int first = Integer.parseInt(values[0]);
 		System.out.println("입력받은 1번째값: "+ values[0]);
 		int result = first ;
-		int k = 1;
 
-		  // 3 --> 2  5---> 3  7--> 4 
-		for(int j=1; j<values.length-k; j++ ){
+
+        for (int i = 1 ; i<values.length ;i = i + 2 )
+		{
 			
-		String symbol = values[2*j-1];
-		System.out.println("입력받은 연산자: "+ values[2*j-1]);	
-		int second = Integer.parseInt(values[2*j]);
-		System.out.println("입력받은 값: "+ values[2*j]);
+		String symbol = values[i];
+		System.out.println("입력받은 연산자: "+ values[i]);	
+		int second = Integer.parseInt(values[i+1]);
+		System.out.println("입력받은 값: "+ values[i+1]);
 		
 		result = Calculate.calculate(result, symbol, second);
-		k = k + 1 ;
+
 		}
 		
 		
