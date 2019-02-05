@@ -6,42 +6,41 @@ public class Calculator {
 
     
 	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);		
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("계산할 값 입력:");
 		
-		String value = Input.getStringVal(scanner);
-		
+		String value = scanner.nextLine();
+		System.out.println("입력받은 값: "+ value);
 		
 		String[] values = value.split(" ");
 		
 		int first = Integer.parseInt(values[0]);
-		
-		int result = first;
-	
-		int i = 2;
-		
-		//while (true) {
-			String symbol = values[1];
+		System.out.println("입력받은 1번째값: "+ values[0]);
+		int result = first ;
+		int k = 1;
+
+		  // 3 --> 2  5---> 3  7--> 4 
+		for(int j=1; j<values.length-k; j++ ){
 			
-
-
-//			  if ("quit".equals(symbol)) {
-//			      // TODO 최종 실행 결과 값 출력
-//				  Output.print(result);				  
-//			      break;
-//			  }
-
-			  // TODO 두 번째 값 입력
-			   int second = Integer.parseInt(values[2]);	    
-
-				i=i+1;  // i번째 입력
-
-			  // TODO 사칙연산 실행
-				result = Calculate.calculate(result, symbol, second);			
-
-			// }
+		String symbol = values[2*j-1];
+		System.out.println("입력받은 연산자: "+ values[2*j-1]);	
+		int second = Integer.parseInt(values[2*j]);
+		System.out.println("입력받은 값: "+ values[2*j]);
 		
-		 scanner.close();
+		result = Calculate.calculate(result, symbol, second);
+		k = k + 1 ;
+		}
 		
-	   }
+		
+		Output.print(result);
+//		String symbol2 = values[3];
+//		System.out.println("입력받은 2번째 연산자: "+ values[3]);	
+//		
+//		int third = Integer.parseInt(values[4]);
+//		System.out.println("입력받은 2번째값: "+ values[4]);
+//		
 
+		
+
+	}
 }
